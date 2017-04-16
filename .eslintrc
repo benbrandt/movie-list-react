@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:flowtype/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "plugins": [
+    "react",
+    "flowtype",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true,
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}
