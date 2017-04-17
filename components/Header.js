@@ -35,17 +35,29 @@ export default () => (
         transition: color .15s ease-in, opacity .15s ease-in;
       }
 
+      a:link,
+      a:visited {
+        transition: color .15s ease-in;
+      }
+
+      a:hover   {
+        transition: color .15s ease-in;
+      }
+
+      a:active {
+        opacity: .8;
+        transition: opacity .15s ease-out, color .15s ease-in;
+      }
+
+      a:focus   {
+        transition: color .15s ease-in;
+        outline: 1px dotted currentColor;
+      }
+
       a:hover,
       a:focus {
         opacity: .5;
         transition: opacity .15s ease-in;
-      }
-      a:active {
-        opacity: .8; transition: opacity .15s ease-out;
-      }
-
-      a:link, a:visited {
-        transition: color .15s ease-in;
       }
 
       .home {

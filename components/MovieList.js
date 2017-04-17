@@ -1,73 +1,117 @@
 // @flow
-import unescape from "lodash/unescape";
 import React from "react";
+import unescape from "lodash/unescape";
+import Link from "next/link";
 import { gql, graphql } from "react-apollo";
+import type { RankingT } from "../types";
 
-const MOVIES_PER_PAGE = 10;
+const MOVIES_PER_PAGE = 32;
+
+type Props = {
+  data: {
+    allRankings: RankingT[],
+    loading: boolean,
+    _allRankingsMeta: {
+      count: number
+    }
+  },
+  loadMoreMovies: () => void
+};
 
 function MovieList({
   data: { allRankings, loading, _allRankingsMeta },
   loadMoreMovies
-}) {
+}: Props) {
   if (allRankings && allRankings.length) {
     const areMoreMovies = allRankings.length < _allRankingsMeta.count;
     return (
       <section>
-        <ul>
-          {allRankings.map((ranking, index) => (
-            <li key={ranking.movie.tmdbId}>
-              <div>
-                <span>{index + 1}.</span>
-                {unescape(ranking.movie.title)}
-              </div>
-            </li>
-          ))}
-        </ul>
+        {allRankings.map(({ movie }, index) => (
+          <Link key={movie.id} href={`/?id=${movie.id}`}>
+            <a>
+              <div
+                className="poster"
+                title={unescape(movie.title)}
+                style={{
+                  background: movie.poster
+                    ? `url('https://image.tmdb.org/t/p/w185${movie.poster}')`
+                    : "black"
+                }}
+              />
+              <span className="position">{index + 1}</span>
+            </a>
+          </Link>
+        ))}
         {areMoreMovies
           ? <button onClick={() => loadMoreMovies()}>
               {loading ? "Loading..." : "Show More"}
             </button>
           : ""}
-        <style jsx>
-          {`
+        <style jsx>{`
           section {
-            padding-bottom: 20px;
-          }
-          li {
-            display: block;
-            margin-bottom: 10px;
-          }
-          div {
-            align-items: center;
             display: flex;
+            flex-wrap: wrap;
+            overflow-y: scroll;
+            width: calc(100% / 3);
           }
+
           a {
-            font-size: 14px;
-            margin-right: 10px;
+            overflow: hidden;
+            position: relative;
             text-decoration: none;
-            padding-bottom: 0;
-            border: 0;
+            transition: color .15s ease-in;
+            width: 25%;
           }
-          span {
-            font-size: 14px;
-            margin-right: 5px;
+
+          a:link,
+          a:visited {
+            transition: color .15s ease-in;
           }
-          ul {
-            margin: 0;
-            padding: 0;
+
+          a:hover   {
+            transition: color .15s ease-in;
           }
-          button:before {
-            align-self: center;
-            border-style: solid;
-            border-width: 6px 4px 0 4px;
-            border-color: #ffffff transparent transparent transparent;
-            content: "";
-            height: 0;
-            margin-right: 5px;
-            width: 0;
+
+          a:active  {
+            transition: color .15s ease-in;
           }
-        `}
-        </style>
+
+          a:focus   {
+            transition: color .15s ease-in;
+            outline: 1px dotted currentColor;
+          }
+
+          .position {
+            background-color: rgba( 255, 255, 255, .9 );
+            color: #000;
+            height: 1rem;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 2rem;
+          }
+
+          .poster {
+            -moz-osx-font-smoothing: grayscale;
+            backface-visibility: hidden;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+            padding-bottom: 150%;
+            transform: translateZ(0);
+            transition: transform 0.25s ease-out;
+          }
+
+          .poster:hover,
+          .poster:focus {
+            transform: scale(1.05);
+          }
+
+          .poster:active {
+            transform: scale(.90);
+          }
+        `}</style>
       </section>
     );
   }
@@ -77,12 +121,13 @@ function MovieList({
 const allRankings = gql`
   query allRankings($first: Int!, $skip: Int!) {
     allRankings(
-    	orderBy: tmdb_ASC,
+      orderBy: tmdb_ASC,
       first: $first,
       skip: $skip
     ) {
       movie {
-        tmdbId
+        id
+        poster
         title
       }
     },
