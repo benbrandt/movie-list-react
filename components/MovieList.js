@@ -121,7 +121,7 @@ function MovieList({
 const allRankings = gql`
   query allRankings($first: Int!, $skip: Int!) {
     allRankings(
-      orderBy: tmdb_ASC,
+      orderBy: position_DESC,
       first: $first,
       skip: $skip
     ) {

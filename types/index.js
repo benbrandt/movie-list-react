@@ -5,6 +5,7 @@ export type Sources =
   | "letterboxd"
   | "metacritic"
   | "mubi"
+  | "rottenTomatoes"
   | "tmdb";
 
 export type Rankings = {
