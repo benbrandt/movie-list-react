@@ -10,8 +10,8 @@ export default withData(({ url }) => (
   <App>
     <Header pathname={url.pathname} />
     <div>
-      <MovieList />
       <Movie id={url.query.id} />
+      <MovieList />
     </div>
     <style jsx>{`
       div {
