@@ -1,4 +1,15 @@
 // @flow
+export type Sources =
+  | "bfi"
+  | "imdb"
+  | "letterboxd"
+  | "metacritic"
+  | "mubi"
+  | "tmdb";
+
+export type MovieResult = { movie: { id: string } };
+export type RankingResult = { ranking: { id: string } };
+
 export type SearchInfo = {
   title: ?string,
   year: ?number
