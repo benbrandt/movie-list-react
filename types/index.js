@@ -7,6 +7,17 @@ export type Sources =
   | "mubi"
   | "tmdb";
 
+export type Rankings = {
+  id: string,
+  bfi: ?number,
+  imdb: ?number,
+  letterboxd: ?number,
+  metacritic: ?number,
+  mubi: ?number,
+  rottenTomatoes: ?number,
+  tmdb: ?number
+};
+
 export type MovieResult = { movie: { id: string } };
 export type RankingResult = { ranking: { id: string } };
 

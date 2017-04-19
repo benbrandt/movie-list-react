@@ -18,10 +18,8 @@ declare module "ramda" {
 }
 
 declare type UnaryFn<A, R> = (a: A) => R;
-declare type CurriedFunction2<T1, T2, R> = ((t1: T1, t2: T2) => R) & ((
-  t1: T1,
-  ...rest: Array<void>
-) => (t2: T2) => R);
+declare type CurriedFunction2<T1, T2, R> = ((t1: T1, t2: T2) => R) &
+  ((t1: T1, ...rest: Array<void>) => (t2: T2) => R);
 
 /**
  * We include stubs for each file inside this npm package in case you need to
@@ -769,10 +767,8 @@ declare module "ramda/src/lte" {
 }
 
 declare module "ramda/src/map" {
-  declare module.exports: (<T, R>(
-    fn: (x: T) => R,
-    xs: Array<T>
-  ) => Array<R>) & (<T, R>(fn: (x: T) => R) => (xs: Array<T>) => Array<R>);
+  declare module.exports: (<T, R>(fn: (x: T) => R, xs: Array<T>) => Array<R>) &
+    (<T, R>(fn: (x: T) => R) => (xs: Array<T>) => Array<R>);
 }
 
 declare module "ramda/src/mapAccum" {
@@ -948,32 +944,34 @@ declare module "ramda/src/pipe" {
     ef: UnaryFn<E, F>,
     fg: UnaryFn<F, G>,
     ...rest: Array<void>
-  ) => UnaryFn<A, G>) & (<A, B, C, D, E, F>(
-    ab: UnaryFn<A, B>,
-    bc: UnaryFn<B, C>,
-    cd: UnaryFn<C, D>,
-    de: UnaryFn<D, E>,
-    ef: UnaryFn<E, F>,
-    ...rest: Array<void>
-  ) => UnaryFn<A, F>) & (<A, B, C, D, E>(
-    ab: UnaryFn<A, B>,
-    bc: UnaryFn<B, C>,
-    cd: UnaryFn<C, D>,
-    de: UnaryFn<D, E>,
-    ...rest: Array<void>
-  ) => UnaryFn<A, E>) & (<A, B, C, D>(
-    ab: UnaryFn<A, B>,
-    bc: UnaryFn<B, C>,
-    cd: UnaryFn<C, D>,
-    ...rest: Array<void>
-  ) => UnaryFn<A, D>) & (<A, B, C>(
-    ab: UnaryFn<A, B>,
-    bc: UnaryFn<B, C>,
-    ...rest: Array<void>
-  ) => UnaryFn<A, C>) & (<A, B>(
-    ab: UnaryFn<A, B>,
-    ...rest: Array<void>
-  ) => UnaryFn<A, B>);
+  ) => UnaryFn<A, G>) &
+    (<A, B, C, D, E, F>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+      de: UnaryFn<D, E>,
+      ef: UnaryFn<E, F>,
+      ...rest: Array<void>
+    ) => UnaryFn<A, F>) &
+    (<A, B, C, D, E>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+      de: UnaryFn<D, E>,
+      ...rest: Array<void>
+    ) => UnaryFn<A, E>) &
+    (<A, B, C, D>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      cd: UnaryFn<C, D>,
+      ...rest: Array<void>
+    ) => UnaryFn<A, D>) &
+    (<A, B, C>(
+      ab: UnaryFn<A, B>,
+      bc: UnaryFn<B, C>,
+      ...rest: Array<void>
+    ) => UnaryFn<A, C>) &
+    (<A, B>(ab: UnaryFn<A, B>, ...rest: Array<void>) => UnaryFn<A, B>);
 }
 
 declare module "ramda/src/pipeK" {
@@ -985,9 +983,14 @@ declare module "ramda/src/pipeP" {
 }
 
 declare module "ramda/src/pluck" {
-  declare module.exports: <V, K: string | number, T: Array<
-    | Array<V>
-    | { [key: string]: V }>>(k: K, xs: T) => Array<V>;
+  declare module.exports: <
+    V,
+    K: string | number,
+    T: Array<Array<V> | { [key: string]: V }>
+  >(
+    k: K,
+    xs: T
+  ) => Array<V>;
 }
 
 declare module "ramda/src/prepend" {
@@ -1119,7 +1122,7 @@ declare module "ramda/src/subtract" {
 }
 
 declare module "ramda/src/sum" {
-  declare module.exports: any;
+  declare module.exports: (number[]) => number;
 }
 
 declare module "ramda/src/symmetricDifference" {
@@ -1139,10 +1142,8 @@ declare module "ramda/src/tail" {
 }
 
 declare module "ramda/src/take" {
-  declare module.exports: (<V, T: Array<V> | string>(
-    n: number,
-    xs: T
-  ) => T) & (<V, T: Array<V> | string>(n: number) => (xs: T) => T);
+  declare module.exports: (<V, T: Array<V> | string>(n: number, xs: T) => T) &
+    (<V, T: Array<V> | string>(n: number) => (xs: T) => T);
 }
 
 declare module "ramda/src/takeLast" {
@@ -1622,7 +1623,9 @@ declare module "ramda/src/internal/_containsWith.js" {
   declare module.exports: $Exports<"ramda/src/internal/_containsWith">;
 }
 declare module "ramda/src/internal/_createPartialApplicator.js" {
-  declare module.exports: $Exports<"ramda/src/internal/_createPartialApplicator">;
+  declare module.exports: $Exports<
+    "ramda/src/internal/_createPartialApplicator"
+  >;
 }
 declare module "ramda/src/internal/_curry1.js" {
   declare module.exports: $Exports<"ramda/src/internal/_curry1">;
