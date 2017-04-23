@@ -3,6 +3,7 @@ import React from "react";
 import unescape from "lodash/unescape";
 import { gql, graphql } from "react-apollo";
 import type { MovieT } from "../types";
+import Rankings from "./Rankings";
 
 function runtime(mins: number) {
   const hours = Math.floor(mins / 60);
@@ -39,6 +40,7 @@ function Movie({ data: { Movie } }: Props) {
               {` / `}
               {runtime(Movie.runtime)}
             </h3>
+            <Rankings rankings={Movie.ranking} />
             {Movie.tagline && <h5>{unescape(Movie.tagline)}</h5>}
             <p>{unescape(Movie.overview)}</p>
             <span className="tmdb">
@@ -147,6 +149,15 @@ const movie = gql`
       runtime
       tagline
       title
+      ranking {
+        bfi
+        imdb
+        letterboxd
+        metacritic
+        mubi
+        rottenTomatoes
+        tmdb
+      }
     }
   }
 `;
