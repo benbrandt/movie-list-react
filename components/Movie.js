@@ -41,6 +41,9 @@ function Movie({ data: { Movie } }: Props) {
             </h3>
             {Movie.tagline && <h5>{unescape(Movie.tagline)}</h5>}
             <p>{unescape(Movie.overview)}</p>
+            <span className="tmdb">
+              Film data from <a href="https://www.themoviedb.org/">TMDb</a>.
+            </span>
           </div>
         </div>
         <style jsx>{`
@@ -49,6 +52,7 @@ function Movie({ data: { Movie } }: Props) {
             background-repeat: no-repeat;
             background-size: cover !important;
             display: flex;
+            flex-grow: 1;
             width: calc(100% / 1.5);
           }
 
@@ -94,6 +98,16 @@ function Movie({ data: { Movie } }: Props) {
             width: calc(100% / 1.5);
           }
 
+          .tmdb {
+            color: #ddd;
+            font-size: 0.75rem;
+            font-style: italic;
+          }
+
+          .tmdb a {
+            color: #eee;
+          }
+
           .wrapper {
             align-items: flex-end;
             background-color: rgba( 0, 0, 0, .5 );
@@ -105,7 +119,20 @@ function Movie({ data: { Movie } }: Props) {
       </section>
     );
   }
-  return <div>Loading</div>;
+
+  return (
+    <section>
+      Loading...
+      <style jsx>{`
+        section {
+          align-items: center;
+          display: flex;
+          flex-grow: 1;
+          justify-content: center;
+        }
+      `}</style>
+    </section>
+  );
 }
 
 const movie = gql`

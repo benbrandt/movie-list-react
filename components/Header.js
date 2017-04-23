@@ -6,17 +6,17 @@ export default () => (
   <header>
     <nav>
       <Link prefetch href="/">
-        <a className="home">Movie list</a>
+        <a className="home">Movie List</a>
       </Link>
 
-      <div className="links">
+      {/* <div className="links">
         <Link prefetch href="/login">
           <a className="login">Login</a>
         </Link>
         <Link prefetch href="/signup">
           <a>Signup</a>
         </Link>
-      </div>
+      </div> */}
     </nav>
 
     <style jsx>{`

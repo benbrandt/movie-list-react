@@ -44,12 +44,13 @@ function MovieList({
         ))}
         {areMoreMovies
           ? <button onClick={() => loadMoreMovies()}>
-              {loading ? "Loading..." : "Show More"}
+              {loading ? "Loading..." : "Load More"}
             </button>
           : ""}
         <style jsx>{`
           section {
             display: flex;
+            flex: 0 0 33%;
             flex-wrap: wrap;
             overflow-y: scroll;
             width: calc(100% / 3);
@@ -79,6 +80,23 @@ function MovieList({
           a:focus   {
             transition: color .15s ease-in;
             outline: 1px dotted currentColor;
+          }
+
+          button {
+            appearance: none;
+            background: #111;
+            border: 0;
+            color: #f4f4f4;
+            font-family: 'Courier Next', courier, monospace;
+            font-size: 1rem;
+            padding: 1em;
+            transition: background 0.2s;
+            width: 100%;
+          }
+
+          button:hover {
+            cursor: pointer;
+            background: #222;
           }
 
           .position {

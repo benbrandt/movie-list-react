@@ -17,6 +17,7 @@
     "jest": true,
   },
   "rules": {
+    "react/no-unused-prop-types": "off",
     "prettier/prettier": "error"
   }
 }
