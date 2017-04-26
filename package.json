@@ -9,24 +9,17 @@
     "start": "next start",
     "test": "jest",
     "flow": "flow",
-    "flow-typed": "flow-typed",
-    "scraper": "BABEL_ENV='scraper' babel-node scraper/scraper.js"
+    "flow-typed": "flow-typed"
   },
   "dependencies": {
-    "dotenv": "^4.0.0",
-    "glob": "^7.1.1",
     "graphql": "^0.9.3",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "lokka": "^1.7.0",
-    "lokka-transport-http": "^1.6.1",
     "next": "^2.2.0",
     "ramda": "^0.23.0",
     "react": "^15.5.4",
     "react-apollo": "^1.1.1",
-    "react-dom": "^15.5.4",
-    "redux": "^3.6.0",
-    "scrape-it": "^3.3.2"
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

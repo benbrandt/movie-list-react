@@ -1,6 +1,5 @@
 // @flow
 import React from "react";
-import toPairs from "ramda/src/toPairs";
 import type { RankingNoMovieT } from "../types";
 
 type Props = { rankings: RankingNoMovieT };

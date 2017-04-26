@@ -43,7 +43,7 @@ export type TmdbMovie = {
   backdrop_path: ?string
 };
 
-type RankingNoMovieT = {
+export type RankingNoMovieT = {
   bfi: ?number,
   createdAt: string,
   id: number,
@@ -57,7 +57,7 @@ type RankingNoMovieT = {
   updatedAt: string
 };
 
-type MovieNoRankingT = {
+export type MovieNoRankingT = {
   backdrop: ?string,
   createdAt: string,
   id: string,
