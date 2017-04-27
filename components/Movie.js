@@ -33,7 +33,7 @@ function Movie({ data: { Movie } }: Props) {
             <h1>
               {unescape(Movie.title)}
               {Movie.title !== Movie.originalTitle &&
-                <small>({Movie.originalTitle})</small>}
+                <small>({unescape(Movie.originalTitle)})</small>}
             </h1>
             <h3>
               {Movie.releaseDate.substr(0, 4)}
