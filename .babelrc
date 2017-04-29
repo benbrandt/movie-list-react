@@ -4,19 +4,5 @@
   ],
   "plugins": [
     "transform-flow-strip-types"
-  ],
-  "env": {
-    "scraper": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": "current"
-            }
-          }
-        ]
-      ]
-    }
-  }
+  ]
 }
