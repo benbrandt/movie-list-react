@@ -11,11 +11,13 @@ function Movie({ data: { Movie } }: Props) {
   if (Movie) {
     return (
       <section
-        style={{
-          background: Movie.backdrop
-            ? `url('https://image.tmdb.org/t/p/w1280${Movie.backdrop}')`
-            : "#333"
-        }}
+        style={
+          Movie.backdrop
+            ? {
+                backgroundImage: `url('https://image.tmdb.org/t/p/w1280${Movie.backdrop}')`
+              }
+            : { backgroundColor: "#333" }
+        }
       >
         <div className="wrapper">
           <Poster poster={Movie.poster} title={Movie.title} />
