@@ -33,8 +33,7 @@ function Movie({ data: { Movie } }: Props) {
             background-repeat: no-repeat;
             background-size: cover !important;
             display: flex;
-            flex-grow: 1;
-            width: calc(100% / 1.5);
+            flex: 1 1 67%;
           }
 
           .wrapper {

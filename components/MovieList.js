@@ -57,7 +57,6 @@ function MovieList({
             flex: 0 0 33%;
             flex-wrap: wrap;
             overflow-y: scroll;
-            width: calc(100% / 3);
           }
 
           a {

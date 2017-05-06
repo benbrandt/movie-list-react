@@ -15,11 +15,13 @@ type Props = {
 function Home({ data: { allRankings } }: Props) {
   return (
     <section
-      style={{
-        background: allRankings[0].movie.backdrop
-          ? `url('https://image.tmdb.org/t/p/w1280${allRankings[0].movie.backdrop}')`
-          : "#333"
-      }}
+      style={
+        allRankings[0].movie.backdrop
+          ? {
+              backgroundImage: `url('https://image.tmdb.org/t/p/w1280${allRankings[0].movie.backdrop}')`
+            }
+          : { backgroundColor: "#333" }
+      }
     >
       <div className="wrapper">
         <h1><em>The</em> Movie List</h1>
@@ -71,21 +73,25 @@ function Home({ data: { allRankings } }: Props) {
           background-repeat: no-repeat;
           background-size: cover !important;
           display: flex;
-          flex-grow: 1;
-          width: calc(100% / 1.5);
+          flex: 1 1 67%;
         }
 
         .copy {
           max-width: 48rem;
+          width: 100%;
         }
 
         .logos {
           align-items: center;
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
+          max-width: 100%;
+          width: 100%;
         }
 
         .logos img {
+          max-height: 28px;
           padding: 0.5rem;
         }
 
