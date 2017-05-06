@@ -37,7 +37,7 @@ function Home({ data: { allRankings } }: Props) {
           </p>
           <div className="logos">
             <img
-              src="http://www.bfi.org.uk/films-tv-people/sites/all/themes/bfi2013/images/bfi_logo_transp.png"
+              src="https://www.bfi.org.uk/films-tv-people/sites/all/themes/bfi2013/images/bfi_logo_transp.png"
               alt="BFI"
             />
             <img
