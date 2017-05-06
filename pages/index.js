@@ -1,27 +1,11 @@
 // @flow
 import React from "react";
-import App from "../components/App";
-import Header from "../components/Header";
 import Home from "../components/Home";
-import MovieList from "../components/MovieList";
+import ListView from "../components/ListView";
 import withData from "../lib/withData";
 
 export default withData(({ url }) => (
-  <App>
-    <Header pathname={url.pathname} />
-    <div>
-      <Home />
-      <MovieList />
-    </div>
-    <style jsx>{`
-      div {
-        align-items: stretch;
-        background-color: #333;
-        color: #f4f4f4;
-        display: flex;
-        flex-direction: row;
-        height: 95vh;
-      }
-    `}</style>
-  </App>
+  <ListView>
+    <Home />
+  </ListView>
 ));

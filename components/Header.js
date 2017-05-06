@@ -8,15 +8,6 @@ export default () => (
       <Link prefetch href="/">
         <a className="home">Movie List</a>
       </Link>
-
-      {/* <div className="links">
-        <Link prefetch href="/login">
-          <a className="login">Login</a>
-        </Link>
-        <Link prefetch href="/signup">
-          <a>Signup</a>
-        </Link>
-      </div> */}
     </nav>
 
     <style jsx>{`
