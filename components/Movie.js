@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import Head from "next/head";
 import { gql, graphql } from "react-apollo";
 import type { MovieT } from "../types";
 import Description from "./Description";
@@ -19,6 +20,9 @@ function Movie({ data: { Movie } }: Props) {
             : { backgroundColor: "#333" }
         }
       >
+        <Head>
+          <title>{Movie.title} | Movie List</title>
+        </Head>
         <div className="wrapper">
           <Poster poster={Movie.poster} title={Movie.title} />
           <Description id={Movie.id} />
