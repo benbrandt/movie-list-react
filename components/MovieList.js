@@ -27,7 +27,11 @@ function MovieList({
     return (
       <section>
         {allRankings.map(({ movie }, index) => (
-          <Link key={movie.id} href={`/?id=${movie.id}`}>
+          <Link
+            key={movie.id}
+            href={`/movie?id=${movie.id}`}
+            as={`/movie/${movie.id}`}
+          >
             <a>
               <div
                 className="poster"

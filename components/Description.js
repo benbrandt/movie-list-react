@@ -14,7 +14,7 @@ function runtime(mins: number) {
 type Props = { data: { Movie: ?MovieT } };
 
 const Description = ({ data: { Movie } }: Props) =>
-  (Movie
+  Movie
     ? <div className="description">
         <h1>
           {unescape(Movie.title)}
@@ -82,7 +82,7 @@ const Description = ({ data: { Movie } }: Props) =>
         }
       `}</style>
       </div>
-    : null);
+    : null;
 
 const movie = gql`
   query Movie($id: ID!) {
