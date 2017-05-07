@@ -63,26 +63,7 @@ function MovieList({
             overflow: hidden;
             position: relative;
             text-decoration: none;
-            transition: color .15s ease-in;
             width: 25%;
-          }
-
-          a:link,
-          a:visited {
-            transition: color .15s ease-in;
-          }
-
-          a:hover   {
-            transition: color .15s ease-in;
-          }
-
-          a:active  {
-            transition: color .15s ease-in;
-          }
-
-          a:focus   {
-            transition: color .15s ease-in;
-            outline: 1px dotted currentColor;
           }
 
           button {

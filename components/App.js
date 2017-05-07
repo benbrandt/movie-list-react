@@ -18,6 +18,18 @@ export default ({ title = "Movie List", children }: Props) => (
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css"
       />
+      <script async src="https://www.google-analytics.com/analytics.js" />
+      <script async src="/static/autotrack.custom.js" />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+          ga('create', 'UA-98611098-1', 'auto');
+          ga('require', 'urlChangeTracker');
+          ga('send', 'pageview');
+        `
+        }}
+      />
     </Head>
     {children}
 
