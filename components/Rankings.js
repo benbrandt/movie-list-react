@@ -10,31 +10,38 @@ type Props = { rankings: RankingNoMovieT };
 const logos: { [id: string]: { label: string, img: string } } = {
   bfi: {
     label: "BFI",
-    img: "https://pbs.twimg.com/profile_images/2283401819/wfh088gwk95ryyhauphu_bigger.png"
+    img:
+      "https://pbs.twimg.com/profile_images/884711689035370496/S3-Agwpb_bigger.jpg"
   },
   imdb: {
     label: "IMDB",
-    img: "https://pbs.twimg.com/profile_images/780796992611942405/qj7ytv9v_bigger.jpg"
+    img:
+      "https://pbs.twimg.com/profile_images/780796992611942405/qj7ytv9v_bigger.jpg"
   },
   letterboxd: {
     label: "Letterboxd",
-    img: "https://pbs.twimg.com/profile_images/2529194120/f383glyd16f8sm5e0wnv_bigger.png"
+    img:
+      "https://pbs.twimg.com/profile_images/2529194120/f383glyd16f8sm5e0wnv_bigger.png"
   },
   metacritic: {
     label: "Metacritic",
-    img: "https://pbs.twimg.com/profile_images/527528131171590144/EQXs3lpX_bigger.png"
+    img:
+      "https://pbs.twimg.com/profile_images/527528131171590144/EQXs3lpX_bigger.png"
   },
   mubi: {
     label: "Mubi",
-    img: "https://pbs.twimg.com/profile_images/536840176912187393/XFLZlqJt_bigger.png"
+    img:
+      "https://pbs.twimg.com/profile_images/536840176912187393/XFLZlqJt_bigger.png"
   },
   rottenTomatoes: {
     label: "RottenTomatoes",
-    img: "https://pbs.twimg.com/profile_images/811034417850220544/NDVQTlyz_bigger.jpg"
+    img:
+      "https://pbs.twimg.com/profile_images/811034417850220544/NDVQTlyz_bigger.jpg"
   },
   tmdb: {
     label: "The Movie DB",
-    img: "https://pbs.twimg.com/profile_images/789117657714831361/zGfknUu8_bigger.jpg"
+    img:
+      "https://pbs.twimg.com/profile_images/789117657714831361/zGfknUu8_bigger.jpg"
   }
 };
 

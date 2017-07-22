@@ -7,7 +7,7 @@ import MovieList from "../components/MovieList";
 
 type Props = { children?: Children };
 
-export default ({ children }: Props) => (
+export default ({ children }: Props) =>
   <App>
     <Header />
     <div>
@@ -24,5 +24,4 @@ export default ({ children }: Props) => (
         height: 95vh;
       }
     `}</style>
-  </App>
-);
+  </App>;

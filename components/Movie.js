@@ -21,7 +21,9 @@ function Movie({ data: { Movie } }: Props) {
         }
       >
         <Head>
-          <title>{Movie.title} | Movie List</title>
+          <title>
+            {Movie.title} | Movie List
+          </title>
         </Head>
         <div className="wrapper">
           <Poster poster={Movie.poster} title={Movie.title} />
@@ -38,7 +40,7 @@ function Movie({ data: { Movie } }: Props) {
 
           .wrapper {
             align-items: flex-end;
-            background-color: rgba( 0, 0, 0, .5 );
+            background-color: rgba(0, 0, 0, .5);
             display: flex;
             flex: 1;
             padding: .5rem;

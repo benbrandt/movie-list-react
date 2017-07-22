@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 
-export default () => (
+export default () =>
   <header>
     <nav>
       <Link prefetch href="/">
@@ -31,7 +31,7 @@ export default () => (
         transition: color .15s ease-in;
       }
 
-      a:hover   {
+      a:hover {
         transition: color .15s ease-in;
       }
 
@@ -40,7 +40,7 @@ export default () => (
         transition: opacity .15s ease-out, color .15s ease-in;
       }
 
-      a:focus   {
+      a:focus {
         transition: color .15s ease-in;
         outline: 1px dotted currentColor;
       }
@@ -71,5 +71,4 @@ export default () => (
         margin-right: 1rem;
       }
     `}</style>
-  </header>
-);
+  </header>;

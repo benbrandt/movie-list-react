@@ -1,40 +1,59 @@
-// flow-typed signature: 708ce6ed5f5bc3ae91eb4462b90f5c41
-// flow-typed version: bc0d03aa53/next_v2.x.x/flow_>=v0.28.x
-
-/* @flow */
-
-import type { Component } from 'react';
+// flow-typed signature: 4ef8fdf85dcacb42bc2cc2953f614c48
+// flow-typed version: 3dad0a2c5d/next_v2.x.x/flow_>=v0.37.x
 
 declare module "next" {
-  declare type RequestHandler = (req: any, res: any, parsedUrl: any) => Promise<void>;
-  declare type NextApp = {
+  declare export type RequestHandler = (req: http$IncomingMessage, res: http$ServerResponse, parsedUrl: any) => Promise<void>;
+  declare export type NextApp = {
     prepare(): Promise<void>,
     getRequestHandler(): RequestHandler,
-    render(req: any, res: any, pathname: string, query: any): any,
-    renderToHTML(req: any, res: any, pathname: string, query: string): string,
-    renderError(err: Error, req: any, res: any, pathname: any, query: any): any,
-    renderErrorToHTML(err: Error, req: any, res: any, pathname: string, query: any): string,
+    render(req: http$IncomingMessage, res: http$ServerResponse, pathname: string, query: any): any,
+    renderToHTML(req: http$IncomingMessage, res: http$ServerResponse, pathname: string, query: string): string,
+    renderError(err: Error, req: http$IncomingMessage, res: http$ServerResponse, pathname: any, query: any): any,
+    renderErrorToHTML(err: Error, req: http$IncomingMessage, res: http$ServerResponse, pathname: string, query: any): string,
   };
-  declare type Options = {
+  declare export type Options = {
     dev?: boolean,
     dir?: string,
     quiet?: boolean,
     staticMarkup?: boolean,
   };
-  declare export default (opts: Options) => NextApp;
+  declare module.exports: (opts: Options) => NextApp;
 }
 
 declare module "next/head" {
+  import type {Component} from 'react';
+
   declare export default Class<Component<void, *, *>>;
 }
 
 declare module "next/link" {
-  declare type State = { href: string };
-  declare export default Class<Component<void, State, *>>;
+  import type { Component } from "react";
+
+  declare export type URLObject = {
+    +href?: string,
+    +protocol?: string,
+    +slashes?: boolean,
+    +auth?: string,
+    +hostname?: string,
+    +port?: string | number,
+    +host?: string,
+    +pathname?: string,
+    +search?: string,
+    +query?: Object,
+    +hash?: string
+  };
+
+  declare export type State = {
+    href: string | URLObject,
+    as?: string | URLObject
+  };
+  declare export default Class<Component<void, State, *>>
 }
 
 declare module "next/prefetch" {
-  declare type State = {
+  import type {Component} from 'react';
+
+  declare export type State = {
     href: string,
     prefetch?: boolean,
   };
@@ -61,7 +80,9 @@ declare module "next/router" {
 }
 
 declare module "next/document" {
-  declare type Context = {
+  import type {Component} from 'react';
+
+  declare export type Context = {
     pathname: string,
     query: any,
     req?: any,

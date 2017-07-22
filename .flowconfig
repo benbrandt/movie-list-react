@@ -1,6 +1,8 @@
 [ignore]
 .*/node_modules/eslint-plugin.*
 .*/node_modules/babel-plugin.*
+.*/node_modules/mitt.*
+.*/node_modules/react-apollo.*
 
 [include]
 

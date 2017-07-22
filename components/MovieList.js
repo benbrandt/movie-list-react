@@ -26,10 +26,10 @@ function MovieList({
     const areMoreMovies = allRankings.length < _allRankingsMeta.count;
     return (
       <section>
-        {allRankings.map(({ movie }, index) => (
+        {allRankings.map(({ movie }, index) =>
           <Link
             key={movie.id}
-            href={`/movie?id=${movie.id}`}
+            href={`/?id=${movie.id}`}
             as={`/movie/${movie.id}`}
           >
             <a>
@@ -42,10 +42,12 @@ function MovieList({
                     : "black"
                 }}
               />
-              <span className="position">{index + 1}</span>
+              <span className="position">
+                {index + 1}
+              </span>
             </a>
           </Link>
-        ))}
+        )}
         {areMoreMovies
           ? <button onClick={() => loadMoreMovies()}>
               {loading ? "Loading..." : "Load More"}
@@ -84,7 +86,7 @@ function MovieList({
           }
 
           .position {
-            background-color: rgba( 255, 255, 255, .9 );
+            background-color: rgba(255, 255, 255, .9);
             color: #000;
             height: 1rem;
             left: 0;
@@ -122,17 +124,13 @@ function MovieList({
 
 const allRankings = gql`
   query allRankings($first: Int!, $skip: Int!) {
-    allRankings(
-      orderBy: position_DESC,
-      first: $first,
-      skip: $skip
-    ) {
+    allRankings(orderBy: position_DESC, first: $first, skip: $skip) {
       movie {
         id
         poster
         title
       }
-    },
+    }
     _allRankingsMeta {
       count
     }
